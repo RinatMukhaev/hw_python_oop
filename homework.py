@@ -51,6 +51,7 @@ class Training:
 
 class Running(Training):
     """Тренировка: бег."""
+
     COEFF_CALORIE_1: float = 18
     COEFF_CALORIE_2: float = 20
     T_MIN: float = 60
@@ -63,6 +64,7 @@ class Running(Training):
 
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
+
     COEFF_CALORIE_3: float = 0.035
     COEFF_CALORIE_4: float = 0.029
     DEG: int = 2
@@ -82,6 +84,7 @@ class SportsWalking(Training):
 
 class Swimming(Training):
     """Тренировка: плавание."""
+
     COEFF_CALORIE_5: float = 1.1
     COEFF_CALORIE_6: float = 2.0
     LEN_STEP: float = 1.38
