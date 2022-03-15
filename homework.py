@@ -122,7 +122,7 @@ def read_package(workout_type: str, data: list) -> Training:
     }
     redirection = operating_modes.get(workout_type)
     if workout_type not in operating_modes:
-        print('Неожиданый вид тренировки')
+        raise
     return redirection(*data)
 
 
