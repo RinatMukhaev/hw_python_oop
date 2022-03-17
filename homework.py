@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 
 @dataclass
@@ -43,8 +43,8 @@ class Training:
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         raise NotImplementedError(
-            "Определите метод get_spent_calories"
-            " в %s." % (self.__class__.__name__)
+            'Определите метод get_spent_calories '
+            f'в {(self.__class__.__name__)}'
         )
 
     def show_training_info(self) -> InfoMessage:
@@ -122,13 +122,16 @@ def read_package(workout_type: str, data: list) -> Training:
     }
     redirection = operating_modes.get(workout_type)
     if workout_type not in operating_modes:
-        raise
+        raise ValueError(
+            'Укажите правильный вид тренировки: '
+            f'{operating_modes.keys()}'
+        )
     return redirection(*data)
 
 
 def main(training: Training) -> None:
     """Главная функция."""
-    print(InfoMessage.get_message(training.show_training_info()))
+    print(training.show_training_info().get_message())
 
 
 if __name__ == "__main__":
